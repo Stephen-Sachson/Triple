@@ -10,7 +10,7 @@
 // Importing cocos2d.h and cocos2d-ui.h, will import anything you need to start using cocos2d-v3
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-
+#import "MagicCell.h"
 // -----------------------------------------------------------------------
 
 /**
@@ -19,6 +19,8 @@
  *  Main usage for CCLayer now, is to make colored backgrounds (rectangles)
  *
  */
+extern const float fixedWidth;
+
 @interface FirstScene : CCScene
 
 // -----------------------------------------------------------------------

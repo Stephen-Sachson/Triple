@@ -201,6 +201,10 @@
 		0D61336419AD7B4F008D5621 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61336319AD7B4F008D5621 /* main.m */; };
 		0D61336819AD7B4F008D5621 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61336719AD7B4F008D5621 /* AppDelegate.m */; };
 		0D61336E19AD7B4F008D5621 /* FirstScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61336D19AD7B4F008D5621 /* FirstScene.m */; };
+		0D61337919AD7D29008D5621 /* MagicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61337819AD7D29008D5621 /* MagicCell.m */; };
+		0D61337D19AD8498008D5621 /* cell0-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D61337A19AD8498008D5621 /* cell0-hd.jpg */; };
+		0D61337E19AD8498008D5621 /* cell1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D61337B19AD8498008D5621 /* cell1-hd.jpg */; };
+		0D61337F19AD8498008D5621 /* cell2-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D61337C19AD8498008D5621 /* cell2-hd.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -610,6 +614,11 @@
 		0D61336719AD7B4F008D5621 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		0D61336C19AD7B4F008D5621 /* FirstScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FirstScene.h; path = Classes/FirstScene.h; sourceTree = "<group>"; };
 		0D61336D19AD7B4F008D5621 /* FirstScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FirstScene.m; path = Classes/FirstScene.m; sourceTree = "<group>"; };
+		0D61337719AD7D29008D5621 /* MagicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicCell.h; sourceTree = "<group>"; };
+		0D61337819AD7D29008D5621 /* MagicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MagicCell.m; sourceTree = "<group>"; };
+		0D61337A19AD8498008D5621 /* cell0-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell0-hd.jpg"; sourceTree = "<group>"; };
+		0D61337B19AD8498008D5621 /* cell1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell1-hd.jpg"; sourceTree = "<group>"; };
+		0D61337C19AD8498008D5621 /* cell2-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell2-hd.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -683,6 +692,9 @@
 		0D61310719AD7B4C008D5621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0D61337A19AD8498008D5621 /* cell0-hd.jpg */,
+				0D61337B19AD8498008D5621 /* cell1-hd.jpg */,
+				0D61337C19AD8498008D5621 /* cell2-hd.jpg */,
 				0D61310819AD7B4C008D5621 /* Default.png */,
 				0D61310A19AD7B4C008D5621 /* Default@2x.png */,
 				0D61310C19AD7B4C008D5621 /* Default-568h@2x.png */,
@@ -1424,6 +1436,8 @@
 				0D61336719AD7B4F008D5621 /* AppDelegate.m */,
 				0D61336C19AD7B4F008D5621 /* FirstScene.h */,
 				0D61336D19AD7B4F008D5621 /* FirstScene.m */,
+				0D61337719AD7D29008D5621 /* MagicCell.h */,
+				0D61337819AD7D29008D5621 /* MagicCell.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1497,6 +1511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D61310B19AD7B4C008D5621 /* Default@2x.png in Resources */,
+				0D61337F19AD8498008D5621 /* cell2-hd.jpg in Resources */,
 				0D61311E19AD7B4C008D5621 /* Icon-120.png in Resources */,
 				0D61311419AD7B4C008D5621 /* Icon@2x.png in Resources */,
 				0D61312619AD7B4C008D5621 /* Icon-Small@2x.png in Resources */,
@@ -1517,7 +1532,9 @@
 				0D61311C19AD7B4C008D5621 /* Icon-76@2x.png in Resources */,
 				0D61312A19AD7B4C008D5621 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				0D61311A19AD7B4C008D5621 /* Icon-76.png in Resources */,
+				0D61337E19AD8498008D5621 /* cell1-hd.jpg in Resources */,
 				0D61312F19AD7B4C008D5621 /* iTunesArtwork@2x in Resources */,
+				0D61337D19AD8498008D5621 /* cell0-hd.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1610,6 +1627,7 @@
 				0D61321819AD7B4D008D5621 /* cocos2d.m in Sources */,
 				0D6131F019AD7B4D008D5621 /* CCSprite9Slice.m in Sources */,
 				0D61323019AD7B4E008D5621 /* CCDirectorMac.m in Sources */,
+				0D61337919AD7D29008D5621 /* MagicCell.m in Sources */,
 				0D6132C619AD7B4E008D5621 /* CCControl.m in Sources */,
 				0D6131C019AD7B4D008D5621 /* CCParticleSystem.m in Sources */,
 				0D6131BC19AD7B4D008D5621 /* CCParticleExamples.m in Sources */,

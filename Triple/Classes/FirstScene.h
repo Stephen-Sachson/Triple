@@ -1,5 +1,5 @@
 //
-//  HelloWorldScene.h
+//  IntroScene.h
 //  Triple
 //
 //  Created by deepfocus-004 on 8/27/14.
@@ -7,20 +7,23 @@
 //
 // -----------------------------------------------------------------------
 
-// Importing cocos2d.h and cocos2d-ui.h, will import anything you need to start using Cocos2D v3
+// Importing cocos2d.h and cocos2d-ui.h, will import anything you need to start using cocos2d-v3
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
 // -----------------------------------------------------------------------
 
 /**
- *  The main scene
+ *  The intro scene
+ *  Note, that scenes should now be based on CCScene, and not CCLayer, as previous versions
+ *  Main usage for CCLayer now, is to make colored backgrounds (rectangles)
+ *
  */
-@interface HelloWorldScene : CCScene
+@interface FirstScene : CCScene
 
 // -----------------------------------------------------------------------
 
-+ (HelloWorldScene *)scene;
++ (FirstScene *)scene;
 - (id)init;
 
 // -----------------------------------------------------------------------

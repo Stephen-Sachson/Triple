@@ -205,6 +205,8 @@
 		0D61337D19AD8498008D5621 /* cell0-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D61337A19AD8498008D5621 /* cell0-hd.jpg */; };
 		0D61337E19AD8498008D5621 /* cell1-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D61337B19AD8498008D5621 /* cell1-hd.jpg */; };
 		0D61337F19AD8498008D5621 /* cell2-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D61337C19AD8498008D5621 /* cell2-hd.jpg */; };
+		0D88C0E319ADD74D00EDE8AA /* cell3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */; };
+		0D88C0E419ADD74D00EDE8AA /* cell4-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -619,6 +621,8 @@
 		0D61337A19AD8498008D5621 /* cell0-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell0-hd.jpg"; sourceTree = "<group>"; };
 		0D61337B19AD8498008D5621 /* cell1-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell1-hd.jpg"; sourceTree = "<group>"; };
 		0D61337C19AD8498008D5621 /* cell2-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell2-hd.jpg"; sourceTree = "<group>"; };
+		0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell3-hd.jpg"; sourceTree = "<group>"; };
+		0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell4-hd.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -695,6 +699,8 @@
 				0D61337A19AD8498008D5621 /* cell0-hd.jpg */,
 				0D61337B19AD8498008D5621 /* cell1-hd.jpg */,
 				0D61337C19AD8498008D5621 /* cell2-hd.jpg */,
+				0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */,
+				0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */,
 				0D61310819AD7B4C008D5621 /* Default.png */,
 				0D61310A19AD7B4C008D5621 /* Default@2x.png */,
 				0D61310C19AD7B4C008D5621 /* Default-568h@2x.png */,
@@ -1513,6 +1519,7 @@
 				0D61310B19AD7B4C008D5621 /* Default@2x.png in Resources */,
 				0D61337F19AD8498008D5621 /* cell2-hd.jpg in Resources */,
 				0D61311E19AD7B4C008D5621 /* Icon-120.png in Resources */,
+				0D88C0E319ADD74D00EDE8AA /* cell3-hd.jpg in Resources */,
 				0D61311419AD7B4C008D5621 /* Icon@2x.png in Resources */,
 				0D61312619AD7B4C008D5621 /* Icon-Small@2x.png in Resources */,
 				0D61311819AD7B4C008D5621 /* Icon-72@2x.png in Resources */,
@@ -1527,6 +1534,7 @@
 				0D6132F219AD7B4F008D5621 /* LICENSE_CCBReader.txt in Resources */,
 				0D61326219AD7B4E008D5621 /* LICENSE_cocos2d.txt in Resources */,
 				0D61310D19AD7B4C008D5621 /* Default-568h@2x.png in Resources */,
+				0D88C0E419ADD74D00EDE8AA /* cell4-hd.jpg in Resources */,
 				0D61312D19AD7B4C008D5621 /* iTunesArtwork in Resources */,
 				0D61312819AD7B4C008D5621 /* Icon-Spotlight-iOS7.png in Resources */,
 				0D61311C19AD7B4C008D5621 /* Icon-76@2x.png in Resources */,

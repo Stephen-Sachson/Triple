@@ -10,6 +10,10 @@
 
 static const NSInteger magicDefaultValue = 0;
 
+@interface MagicCell ()
+
+@end
+
 @implementation MagicCell
 
 + (MagicCell *)cellWithImageNamed:(NSString *)name {

@@ -272,10 +272,12 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
         for (int ih=0; ih<counter_; ih++) {
            
             if(posF[hi].y == posT[ih].y) {
+                legal = YES;
                 for (int kk = 0; kk < shit; kk++) {
                     if (occupiedPos[kk].y == posF[hi].y) {
                         if (withinDots(occupiedPos[kk].x, posF[hi].x, posT[ih].x)) {
                             legal = NO;
+                            continue;
                         }
                     }
                 }
@@ -362,16 +364,18 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
         }
     } // init pos t
     
-//     CCLOG(@"F:%i  T:%i",_counter,_counter_);
+     CCLOG(@"F:%i  T:%i",_counter,_counter_);
     legal = YES;
     for (int hi=0; hi<_counter; hi++) {
         for (int ih=0; ih<_counter_; ih++) {
-//             CCLOG(@"F(%i, %i)  T(%i, %i)",_posF[hi].x, _posF[hi].y, _posT[ih].x, _posT[ih].y);
+             CCLOG(@"F(%i, %i)  T(%i, %i)",_posF[hi].x, _posF[hi].y, _posT[ih].x, _posT[ih].y);
             if(_posF[hi].x == _posT[ih].x) {
+                legal = YES;
                 for (int kk = 0; kk < shit; kk++) {
                     if (occupiedPos[kk].x == _posF[hi].x) {
                         if (withinDots(occupiedPos[kk].y, _posF[hi].y, _posT[ih].y)) {
                             legal = NO;
+                            continue;
                         }
                     }
                 }

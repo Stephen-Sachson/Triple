@@ -427,6 +427,8 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int h
     self.userInteractionEnabled=NO;
     shouldRemoveBoth=NO;
     
+    srand((unsigned int)time(NULL));
+    
     [self createCells];
     // done
 	return self;

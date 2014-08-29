@@ -12,6 +12,7 @@
 
 static const int numOfPics = 5;
 int shit=0;
+
 typedef struct pos {
     int x;
     int y;
@@ -22,6 +23,17 @@ DotPosition dPos (int x, int y) {
     p.x=x;
     p.y=y;
     return p;
+}
+
+static int biasX = 0;
+static int biasY = 0;
+
+DotPosition turnDots[2];
+
+int numOfTurns;
+
+CGPoint dToP (DotPosition pos) {
+    return ccp((pos.x+0.5)*fixedWidth+biasX/2, (pos.y+0.5)*fixedWidth+biasY/2);
 }
 
 BOOL sameDot (DotPosition pf, DotPosition pt) {
@@ -43,8 +55,17 @@ BOOL withinDots(int src, int x, int y) {
     return NO;
 }
 
-BOOL safeRet (bool check) {
+BOOL safeRet (bool check, int turns, DotPosition *turn, DotPosition *outTurn) {
     shit = 0;
+    numOfTurns = turns;
+    if (turns == 1) {
+         outTurn[0] = *turn;
+    }
+    if (turns == 2) {
+        outTurn[0] = turn[0];
+        outTurn[1] = turn[1];
+    }
+
     return check;
 }
 
@@ -75,11 +96,11 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
     }
     
     if (from.x == to.x && meetOnY) {
-        return safeRet(YES);
+        return safeRet(YES, 0, NULL, turnDots);
     }
     if (from.y == to.y && meetOnX) {
         shit = 0;
-        return safeRet(YES);
+        return safeRet(YES, 0, NULL, turnDots);
     }
     
     /**********                UNI-TURN                 **********/
@@ -153,12 +174,14 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
                 continue;
             }
         }
-    
+        
         if (uniTop && uniRight && uniCornerT) {
-            return safeRet(YES);
+            DotPosition p=dPos(to.x, from.y);
+            return safeRet(YES, 1, &p, turnDots);
         }
         if (uniLeft && uniBottom && uniCornerB) {
-            return safeRet(YES);
+            DotPosition p=dPos(from.x, to.y);
+            return safeRet(YES, 1, &p, turnDots);
         }
     }
     
@@ -257,7 +280,8 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
                     }
                 }
                 if (legal) {
-                    return safeRet(YES);
+                    DotPosition p[2]={posF[hi],posT[ih]};
+                    return safeRet(YES, 2, p, turnDots);
                 }
             }
         }
@@ -352,13 +376,14 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
                     }
                 }
                 if (legal) {
-                    return safeRet(YES);
+                    DotPosition p[2]={_posF[hi],_posT[ih]};
+                    return safeRet(YES, 2, p, turnDots);
                 }
             }
         }
     }
     
-    return safeRet(NO);
+    return safeRet(NO, -1, NULL, turnDots);
 }
 
 @interface FirstScene () {
@@ -366,7 +391,7 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
     NSInteger numOfRows;
     MagicCell *prevCell;
     
-    BOOL shouldRemoveBoth;
+    __block BOOL shouldRemoveBoth;
 }
 
 @end
@@ -448,9 +473,67 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
                                 shit++;
                             }
                         }
-                        if (hasRoute(fr,to,dots,(int)numOfRows,(int)numOfColumns)) {
-                            [self removeChild:weakCell];
-                            [self removeChild:prevCell];
+                        if (hasRoute(fr,to,dots,(int)numOfRows,(int)numOfColumns))
+                        {
+                            CCDrawNode *line=[CCDrawNode node];
+                            CCDrawNode *line1=[CCDrawNode node];
+                            CCDrawNode *line2=[CCDrawNode node];
+                            
+                            switch (numOfTurns) {
+                                case 0: {
+                                    [line drawSegmentFrom:dToP(fr) to:dToP(to) radius:2 color:[CCColor colorWithUIColor:[UIColor greenColor]]];
+            
+                                    [self addChild:line z:11];
+                                }
+                                    break;
+                                case 1: {
+                                    [line drawSegmentFrom:dToP(fr) to:dToP(turnDots[0]) radius:2 color:[CCColor colorWithUIColor:[UIColor greenColor]]];
+                                    
+                                    [self addChild:line z:11];
+                                    [line1 drawSegmentFrom:dToP(turnDots[0]) to:dToP(to) radius:2 color:[CCColor colorWithUIColor:[UIColor greenColor]]];
+                                    
+                                    [self addChild:line1 z:11];
+                                }
+                                    break;
+                                case 2: {
+                                    [line drawSegmentFrom:dToP(fr) to:dToP(turnDots[0]) radius:2 color:[CCColor colorWithUIColor:[UIColor greenColor]]];
+                                    
+                                    [self addChild:line z:11];
+                                    [line1 drawSegmentFrom:dToP(turnDots[0]) to:dToP(turnDots[1]) radius:2 color:[CCColor colorWithUIColor:[UIColor greenColor]]];
+                                    
+                                    [self addChild:line1 z:11];
+                                    [line2 drawSegmentFrom:dToP(turnDots[1]) to:dToP(to) radius:2 color:[CCColor colorWithUIColor:[UIColor greenColor]]];
+                                   
+                                    [self addChild:line2 z:11];
+                                }
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }
+                            
+                            __block MagicCell *cellAliasOne = weakCell;
+                            __block MagicCell *cellAliasTwo = prevCell;
+                            
+                            CCActionSequence *seq=[CCActionSequence actionOne:[CCActionDelay actionWithDuration:0.3f] two:[CCActionCallBlock actionWithBlock:^{
+                                if ([line.parent isEqual:self]) {
+                                    [line removeFromParent];
+                                }
+                                if ([line1.parent isEqual:self]) {
+                                    [line1 removeFromParent];
+                                }
+                                if ([line2.parent isEqual:self]) {
+                                    [line2 removeFromParent];
+                                }
+                                
+                                [cellAliasOne removeFromParent];
+                                [cellAliasTwo removeFromParent];
+                            }]];
+                            
+                            [self runAction:seq];
+                            
+//                            [weakCell removeFromParent];
+//                            [prevCell removeFromParent];
                             shouldRemoveBoth = YES;
                         }
                     }
@@ -474,8 +557,8 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
 - (void)placeCells
 {
     CGSize winSize=[CCDirector sharedDirector].viewSize;
-    int biasX = winSize.width - (fixedWidth * numOfColumns);
-    int biasY = winSize.height - (fixedWidth * numOfRows);
+    biasX = winSize.width - (fixedWidth * numOfColumns);
+    biasY = winSize.height - (fixedWidth * numOfRows);
     
     for (MagicCell *cell in self.children) {
         if ([cell isKindOfClass:[MagicCell class]]) {

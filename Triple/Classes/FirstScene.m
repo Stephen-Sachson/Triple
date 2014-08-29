@@ -69,7 +69,7 @@ BOOL safeRet (bool check, int turns, DotPosition *turn, DotPosition *outTurn) {
     return check;
 }
 
-BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int width, int height)
+BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int height, int width)
 {
     /**********                NO TURN                 **********/
     
@@ -346,8 +346,9 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
             continue;
         }
     }
-    legal = YES;
+    
     for (int i=to.x; i>-1; i--) {
+        legal = YES;
         for (int kk = 0; kk < shit; kk++)
         {
             if (occupiedPos[kk].y == to.y) {
@@ -364,11 +365,11 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
         }
     } // init pos t
     
-//    CCLOG(@"F:%i  T:%i",_counter,_counter_);
+    CCLOG(@"F:%i  T:%i",_counter,_counter_);
     legal = YES;
     for (int hi=0; hi<_counter; hi++) {
         for (int ih=0; ih<_counter_; ih++) {
-//             CCLOG(@"F(%i, %i)  T(%i, %i)",_posF[hi].x, _posF[hi].y, _posT[ih].x, _posT[ih].y);
+             CCLOG(@"F(%i, %i)  T(%i, %i)",_posF[hi].x, _posF[hi].y, _posT[ih].x, _posT[ih].y);
             if(_posF[hi].x == _posT[ih].x) {
                 legal = YES;
                 for (int kk = 0; kk < shit; kk++) {
@@ -453,7 +454,7 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
             __weak MagicCell *weakCell=cell;
             cell.block=^(id sender) {
                 
-//          CCLOG(@"(%li, %li) id:%li", (long)weakCell.x, (long)weakCell.y,(long)weakCell.cellID);
+                CCLOG(@"(%li, %li) id:%li", (long)weakCell.x, (long)weakCell.y,(long)weakCell.cellID);
                 
                 if(prevCell) {
                     if ([prevCell isEqual:weakCell]) return;
@@ -463,12 +464,12 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
                     if (prevCell && weakCell.cellID == prevCell.cellID)
                     {
                         DotPosition fr;
-                        fr.x=(int)weakCell.x;
-                        fr.y=(int)weakCell.y;
+                        fr.x=(int)prevCell.x;
+                        fr.y=(int)prevCell.y;
                         
                         DotPosition to;
-                        to.x=(int)prevCell.x;
-                        to.y=(int)prevCell.y;
+                        to.x=(int)weakCell.x;
+                        to.y=(int)weakCell.y;
                         
                         DotPosition dots[100];
                         for (MagicCell *aCell in self.children) {

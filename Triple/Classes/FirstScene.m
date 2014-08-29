@@ -364,11 +364,11 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int w
         }
     } // init pos t
     
-     CCLOG(@"F:%i  T:%i",_counter,_counter_);
+//    CCLOG(@"F:%i  T:%i",_counter,_counter_);
     legal = YES;
     for (int hi=0; hi<_counter; hi++) {
         for (int ih=0; ih<_counter_; ih++) {
-             CCLOG(@"F(%i, %i)  T(%i, %i)",_posF[hi].x, _posF[hi].y, _posT[ih].x, _posT[ih].y);
+//             CCLOG(@"F(%i, %i)  T(%i, %i)",_posF[hi].x, _posF[hi].y, _posT[ih].x, _posT[ih].y);
             if(_posF[hi].x == _posT[ih].x) {
                 legal = YES;
                 for (int kk = 0; kk < shit; kk++) {

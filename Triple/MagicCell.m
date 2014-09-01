@@ -62,6 +62,11 @@ static const NSInteger magicDefaultValue = 0;
     shouldSwap = NO;
 }
 
+- (void)setSpriteCell:(CCSprite *)spriteCell {
+    _spriteCell = spriteCell;
+    _spriteCell.scale = 0.5;
+}
+
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     [super touchBegan:touch withEvent:event];
 //    CCLOG(@"touch");

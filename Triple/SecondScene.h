@@ -21,6 +21,8 @@ extern const float fixedWidth;
     int numOfPics;
     float biasX;
     float biasY;
+    
+    NSMutableArray *removedCells;
 }
 
 + (SecondScene *)scene;

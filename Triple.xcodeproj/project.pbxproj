@@ -207,6 +207,7 @@
 		0D61337F19AD8498008D5621 /* cell2-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D61337C19AD8498008D5621 /* cell2-hd.jpg */; };
 		0D88C0E319ADD74D00EDE8AA /* cell3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */; };
 		0D88C0E419ADD74D00EDE8AA /* cell4-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */; };
+		0DE6295119B40D45002ED391 /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6295019B40D45002ED391 /* SecondScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -623,6 +624,9 @@
 		0D61337C19AD8498008D5621 /* cell2-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell2-hd.jpg"; sourceTree = "<group>"; };
 		0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell3-hd.jpg"; sourceTree = "<group>"; };
 		0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell4-hd.jpg"; sourceTree = "<group>"; };
+		0DE6294F19B40D45002ED391 /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondScene.h; sourceTree = "<group>"; };
+		0DE6295019B40D45002ED391 /* SecondScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondScene.m; sourceTree = "<group>"; };
+		0DE6295219B40DAE002ED391 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1444,6 +1448,9 @@
 				0D61336D19AD7B4F008D5621 /* FirstScene.m */,
 				0D61337719AD7D29008D5621 /* MagicCell.h */,
 				0D61337819AD7D29008D5621 /* MagicCell.m */,
+				0DE6294F19B40D45002ED391 /* SecondScene.h */,
+				0DE6295019B40D45002ED391 /* SecondScene.m */,
+				0DE6295219B40DAE002ED391 /* Configuration.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1653,6 +1660,7 @@
 				0D61319319AD7B4D008D5621 /* ccFPSImages.m in Sources */,
 				0D6132A519AD7B4E008D5621 /* OALAudioSession.m in Sources */,
 				0D61323619AD7B4E008D5621 /* CCWindow.m in Sources */,
+				0DE6295119B40D45002ED391 /* SecondScene.m in Sources */,
 				0D6131F619AD7B4D008D5621 /* CCSpriteFrame.m in Sources */,
 				0D61322219AD7B4E008D5621 /* CCES2Renderer.m in Sources */,
 				0D61317719AD7B4C008D5621 /* CCActionProgressTimer.m in Sources */,

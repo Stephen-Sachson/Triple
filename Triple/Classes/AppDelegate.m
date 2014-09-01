@@ -9,6 +9,7 @@
 
 #import "AppDelegate.h"
 #import "FirstScene.h"
+#import "SecondScene.h"
 
 @implementation AppDelegate
 
@@ -48,6 +49,11 @@
 -(CCScene *)startScene
 {
 	// This method should return the very first scene to be run when your app starts.
+#ifdef Triple_Configuration_h
+    if (Game_Mode)
+    return [SecondScene scene];
+#endif
+    
 	return [FirstScene scene];
 }
 

@@ -8,6 +8,7 @@
 // -----------------------------------------------------------------------
 
 #import "cocos2d.h"
+#import "Configuration.h"
 
 @interface AppDelegate : CCAppDelegate
 @end

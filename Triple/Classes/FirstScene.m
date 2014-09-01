@@ -443,6 +443,15 @@ BOOL hasRoute (DotPosition from, DotPosition to, DotPosition *occupiedPos, int h
     numOfColumns=(NSInteger)floorf(winSize.width/fixedWidth);
     numOfRows=(NSInteger)floorf(winSize.height/fixedWidth);
     
+    if (((int)numOfColumns * (int)numOfRows)%2 != 0) {
+        if (numOfRows > numOfColumns) {
+            numOfRows--;
+        }
+        else {
+            numOfColumns--;
+        }
+    }
+    
     for (int i=0; i<numOfRows; i++) {
         for (int j=0; j<numOfColumns; j++) {
             int r=rand()%numOfPics;

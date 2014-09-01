@@ -113,23 +113,76 @@
     return YES;
 }
 
+- (void)swapCell:(MagicCell *)cellOne withCell:(MagicCell *)cellTwo {
+    ccBezierConfig bezier;
+    bezier.endPosition = cellTwo.position;
+    bezier.controlPoint_1 = ccp((cellTwo.position.x+cellOne.position.x)/2+5, cellOne.position.y+3);
+    bezier.controlPoint_2 = ccp((cellOne.position.x+cellTwo.position.x)/2-5, cellOne.position.y+3);
+    CCActionBezierTo *moveOne = [CCActionBezierTo actionWithDuration:0.3f bezier:bezier];
+    CCActionScaleTo *large = [CCActionScaleTo actionWithDuration:0.15f scale:1.1];
+    CCActionScaleTo *small = [CCActionScaleTo actionWithDuration:0.15f scale:1.0];
+    CCActionSequence *scaleSeq = [CCActionSequence actionOne:large two:small];
+    CCActionSpawn *spOne = [CCActionSpawn actionOne:moveOne two:scaleSeq];
+    
+    cellOne.zOrder+=10;
+    [cellOne runAction:[CCActionSequence actionOne:spOne two:[CCActionCallBlock actionWithBlock:^{
+        NSInteger tempX = cellOne.x;
+        NSInteger tempY = cellOne.y;
+        cellOne.x = cellTwo.x;
+        cellOne.y = cellTwo.y;
+        cellTwo.x = tempX;
+        cellTwo.y = tempY;
+        cellOne.zOrder-=10;
+    }]]];
+    
+    ccBezierConfig bezier_;
+    bezier_.endPosition = cellOne.position;
+    bezier_.controlPoint_1 = ccp((cellTwo.position.x+cellOne.position.x)/2+5, cellOne.position.y-3);
+    bezier_.controlPoint_2 = ccp((cellOne.position.x+cellTwo.position.x)/2-5, cellOne.position.y-3);
+    CCActionBezierTo *moveTwo = [CCActionBezierTo actionWithDuration:0.3f bezier:bezier_];
+    CCActionScaleTo *large_ = [CCActionScaleTo actionWithDuration:0.15f scale:1.0];
+    CCActionScaleTo *small_ = [CCActionScaleTo actionWithDuration:0.15f scale:0.9];
+    CCActionSequence *scaleSeq_ = [CCActionSequence actionOne:small_ two:large_];
+    CCActionSpawn *spTwo = [CCActionSpawn actionOne:moveTwo two:scaleSeq_];
+    [cellTwo runAction:spTwo];
+}
+
 - (BOOL)magicCell:(MagicCell *)aCell moveAtDirection:(Direction)dir
 {
     switch (dir) {
         case DirectionUp:
             CCLOG(@"%li moved up", (long)aCell.cellID);
             break;
+            
         case DirectionDown:
             CCLOG(@"%li moved down", (long)aCell.cellID);
             [removedCells addObject:aCell];
             aCell.visible = NO;
             [self placeCells];
             break;
-        case DirectionLeft:
+            
+        case DirectionLeft: {
             CCLOG(@"%li moved left", (long)aCell.cellID);
+            for (MagicCell *cell in self.children) {
+                if ([cell isKindOfClass:[MagicCell class]]) {
+                    if (cell.x == aCell.x-1 && cell.y == aCell.y) {
+                        [self swapCell:aCell withCell:cell];
+                    }
+                }
+            }
+        }
             break;
-        case DirectionRight:
+            
+        case DirectionRight: {
             CCLOG(@"%li moved right", (long)aCell.cellID);
+            for (MagicCell *cell in self.children) {
+                if ([cell isKindOfClass:[MagicCell class]]) {
+                    if (cell.x == aCell.x+1 && cell.y == aCell.y) {
+                        [self swapCell:aCell withCell:cell];
+                    }
+                }
+            }
+        }
             break;
             
         default:

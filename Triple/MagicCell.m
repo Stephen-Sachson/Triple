@@ -10,7 +10,11 @@
 
 static const NSInteger magicDefaultValue = 0;
 
-@interface MagicCell ()
+@interface MagicCell () {
+    CGPoint touchBeganPos;
+    BOOL shouldSwap;
+    BOOL swapSuccessfully;
+}
 
 @end
 
@@ -46,5 +50,57 @@ static const NSInteger magicDefaultValue = 0;
     
     _contentSize = CGSizeMake(fixedWidth, fixedWidth);
 }
+
+#ifdef Triple_Configuration_h
+#if Game_Mode
+#define kTriggerDistance 32.0f
+
+- (void)onEnter {
+    [super onEnter];
+    self.userInteractionEnabled = YES;
+    shouldSwap = NO;
+}
+
+- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    [super touchBegan:touch withEvent:event];
+//    CCLOG(@"touch");
+    touchBeganPos = [touch locationInWorld];
+    shouldSwap = YES;
+}
+
+- (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+    [super touchMoved:touch withEvent:event];
+    
+    if (shouldSwap)
+    {
+        CGPoint currentPos = [touch locationInWorld];
+        
+        if (currentPos.x > touchBeganPos.x + kTriggerDistance)
+        {
+//            CCLOG(@"move right");
+            swapSuccessfully = [self.delegate moveAtDirection:DirectionRight];
+            shouldSwap = NO;
+        }
+        else if (touchBeganPos.x > currentPos.x + kTriggerDistance) {
+//            CCLOG(@"move left");
+            swapSuccessfully = [self.delegate moveAtDirection:DirectionLeft];
+            shouldSwap = NO;
+        }
+        else if (currentPos.y > touchBeganPos.y + kTriggerDistance) {
+//            CCLOG(@"move up");
+            swapSuccessfully = [self.delegate moveAtDirection:DirectionUp];
+            shouldSwap = NO;
+        }
+        else if (touchBeganPos.y > currentPos.y + kTriggerDistance) {
+//            CCLOG(@"move down");
+            swapSuccessfully = [self.delegate moveAtDirection:DirectionDown];
+            shouldSwap = NO;
+        }
+    }
+}
+
+
+#endif
+#endif
 
 @end

@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "MagicCell.h"
 
-@interface SecondScene : CCScene {
+@protocol MagicCellDelegate;
+
+@interface SecondScene : CCScene <MagicCellDelegate> {
     
 }
 

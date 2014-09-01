@@ -10,10 +10,17 @@
 #import "cocos2d.h"
 #import "MagicCell.h"
 
+extern const float fixedWidth;
+
 @protocol MagicCellDelegate;
 
 @interface SecondScene : CCScene <MagicCellDelegate> {
+    NSInteger numOfRows;
+    NSInteger numOfColumns;
     
+    int numOfPics;
+    float biasX;
+    float biasY;
 }
 
 + (SecondScene *)scene;

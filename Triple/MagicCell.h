@@ -36,6 +36,6 @@ static const float fixedWidth = 64.0f;
 
 @protocol MagicCellDelegate <NSObject>
 
-- (BOOL)moveAtDirection:(Direction)dir;
+- (BOOL)magicCell:(MagicCell *)aCell moveAtDirection:(Direction)dir;
 
 @end

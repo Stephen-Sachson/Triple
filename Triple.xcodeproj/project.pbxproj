@@ -208,6 +208,12 @@
 		0D88C0E319ADD74D00EDE8AA /* cell3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */; };
 		0D88C0E419ADD74D00EDE8AA /* cell4-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */; };
 		0DE6295119B40D45002ED391 /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6295019B40D45002ED391 /* SecondScene.m */; };
+		0DE6295419B44315002ED391 /* bg-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6295319B44315002ED391 /* bg-hd.jpg */; };
+		0DE6296419B44A10002ED391 /* Orb_Icons_001-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6295F19B44A10002ED391 /* Orb_Icons_001-hd.png */; };
+		0DE6296519B44A10002ED391 /* Orb_Icons_002-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6296019B44A10002ED391 /* Orb_Icons_002-hd.png */; };
+		0DE6296619B44A10002ED391 /* Orb_Icons_003-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6296119B44A10002ED391 /* Orb_Icons_003-hd.png */; };
+		0DE6296719B44A10002ED391 /* Orb_Icons_004-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6296219B44A10002ED391 /* Orb_Icons_004-hd.png */; };
+		0DE6296819B44A10002ED391 /* Orb_Icons_005-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6296319B44A10002ED391 /* Orb_Icons_005-hd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -627,6 +633,12 @@
 		0DE6294F19B40D45002ED391 /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondScene.h; sourceTree = "<group>"; };
 		0DE6295019B40D45002ED391 /* SecondScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondScene.m; sourceTree = "<group>"; };
 		0DE6295219B40DAE002ED391 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
+		0DE6295319B44315002ED391 /* bg-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-hd.jpg"; sourceTree = "<group>"; };
+		0DE6295F19B44A10002ED391 /* Orb_Icons_001-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orb_Icons_001-hd.png"; sourceTree = "<group>"; };
+		0DE6296019B44A10002ED391 /* Orb_Icons_002-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orb_Icons_002-hd.png"; sourceTree = "<group>"; };
+		0DE6296119B44A10002ED391 /* Orb_Icons_003-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orb_Icons_003-hd.png"; sourceTree = "<group>"; };
+		0DE6296219B44A10002ED391 /* Orb_Icons_004-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orb_Icons_004-hd.png"; sourceTree = "<group>"; };
+		0DE6296319B44A10002ED391 /* Orb_Icons_005-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Orb_Icons_005-hd.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -705,6 +717,12 @@
 				0D61337C19AD8498008D5621 /* cell2-hd.jpg */,
 				0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */,
 				0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */,
+				0DE6295319B44315002ED391 /* bg-hd.jpg */,
+				0DE6295F19B44A10002ED391 /* Orb_Icons_001-hd.png */,
+				0DE6296019B44A10002ED391 /* Orb_Icons_002-hd.png */,
+				0DE6296119B44A10002ED391 /* Orb_Icons_003-hd.png */,
+				0DE6296219B44A10002ED391 /* Orb_Icons_004-hd.png */,
+				0DE6296319B44A10002ED391 /* Orb_Icons_005-hd.png */,
 				0D61310819AD7B4C008D5621 /* Default.png */,
 				0D61310A19AD7B4C008D5621 /* Default@2x.png */,
 				0D61310C19AD7B4C008D5621 /* Default-568h@2x.png */,
@@ -1526,21 +1544,26 @@
 				0D61310B19AD7B4C008D5621 /* Default@2x.png in Resources */,
 				0D61337F19AD8498008D5621 /* cell2-hd.jpg in Resources */,
 				0D61311E19AD7B4C008D5621 /* Icon-120.png in Resources */,
+				0DE6296719B44A10002ED391 /* Orb_Icons_004-hd.png in Resources */,
 				0D88C0E319ADD74D00EDE8AA /* cell3-hd.jpg in Resources */,
 				0D61311419AD7B4C008D5621 /* Icon@2x.png in Resources */,
 				0D61312619AD7B4C008D5621 /* Icon-Small@2x.png in Resources */,
 				0D61311819AD7B4C008D5621 /* Icon-72@2x.png in Resources */,
+				0DE6296619B44A10002ED391 /* Orb_Icons_003-hd.png in Resources */,
 				0D61310919AD7B4C008D5621 /* Default.png in Resources */,
 				0D61311219AD7B4C008D5621 /* Icon.png in Resources */,
 				0D61312019AD7B4C008D5621 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				0D61310F19AD7B4C008D5621 /* Default-Landscape~ipad.png in Resources */,
 				0D61312419AD7B4C008D5621 /* Icon-Small.png in Resources */,
 				0D61312219AD7B4C008D5621 /* Icon-Small-50.png in Resources */,
+				0DE6296519B44A10002ED391 /* Orb_Icons_002-hd.png in Resources */,
 				0D61336019AD7B4F008D5621 /* LICENSE_Chipmunk.txt in Resources */,
 				0D61311619AD7B4C008D5621 /* Icon-72.png in Resources */,
 				0D6132F219AD7B4F008D5621 /* LICENSE_CCBReader.txt in Resources */,
+				0DE6296819B44A10002ED391 /* Orb_Icons_005-hd.png in Resources */,
 				0D61326219AD7B4E008D5621 /* LICENSE_cocos2d.txt in Resources */,
 				0D61310D19AD7B4C008D5621 /* Default-568h@2x.png in Resources */,
+				0DE6295419B44315002ED391 /* bg-hd.jpg in Resources */,
 				0D88C0E419ADD74D00EDE8AA /* cell4-hd.jpg in Resources */,
 				0D61312D19AD7B4C008D5621 /* iTunesArtwork in Resources */,
 				0D61312819AD7B4C008D5621 /* Icon-Spotlight-iOS7.png in Resources */,
@@ -1549,6 +1572,7 @@
 				0D61311A19AD7B4C008D5621 /* Icon-76.png in Resources */,
 				0D61337E19AD8498008D5621 /* cell1-hd.jpg in Resources */,
 				0D61312F19AD7B4C008D5621 /* iTunesArtwork@2x in Resources */,
+				0DE6296419B44A10002ED391 /* Orb_Icons_001-hd.png in Resources */,
 				0D61337D19AD8498008D5621 /* cell0-hd.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

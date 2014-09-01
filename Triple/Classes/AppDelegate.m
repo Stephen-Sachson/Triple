@@ -34,7 +34,7 @@
 		// Use a simplified coordinate system that is shared across devices.
 //		CCSetupScreenMode: CCScreenModeFixed,
 		// Run in portrait mode.
-//		CCSetupScreenOrientation: CCScreenOrientationPortrait,
+		CCSetupScreenOrientation:Game_Mode ? CCScreenOrientationPortrait : CCScreenOrientationLandscape,
 		// Run at a reduced framerate.
 //		CCSetupAnimationInterval: @(1.0/30.0),
 		// Run the fixed timestep extra fast.

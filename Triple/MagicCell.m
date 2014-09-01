@@ -57,6 +57,7 @@ static const NSInteger magicDefaultValue = 0;
 
 - (void)onEnter {
     [super onEnter];
+    _spriteCell.scale = 0.5;
     self.userInteractionEnabled = YES;
     shouldSwap = NO;
 }
@@ -77,23 +78,19 @@ static const NSInteger magicDefaultValue = 0;
         
         if (currentPos.x > touchBeganPos.x + kTriggerDistance)
         {
-//            CCLOG(@"move right");
-            swapSuccessfully = [self.delegate moveAtDirection:DirectionRight];
+            swapSuccessfully = [self.delegate magicCell:self moveAtDirection:DirectionRight];
             shouldSwap = NO;
         }
         else if (touchBeganPos.x > currentPos.x + kTriggerDistance) {
-//            CCLOG(@"move left");
-            swapSuccessfully = [self.delegate moveAtDirection:DirectionLeft];
+            swapSuccessfully = [self.delegate magicCell:self moveAtDirection:DirectionLeft];
             shouldSwap = NO;
         }
         else if (currentPos.y > touchBeganPos.y + kTriggerDistance) {
-//            CCLOG(@"move up");
-            swapSuccessfully = [self.delegate moveAtDirection:DirectionUp];
+            swapSuccessfully = [self.delegate magicCell:self moveAtDirection:DirectionUp];
             shouldSwap = NO;
         }
         else if (touchBeganPos.y > currentPos.y + kTriggerDistance) {
-//            CCLOG(@"move down");
-            swapSuccessfully = [self.delegate moveAtDirection:DirectionDown];
+            swapSuccessfully = [self.delegate magicCell:self moveAtDirection:DirectionDown];
             shouldSwap = NO;
         }
     }

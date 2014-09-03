@@ -121,25 +121,34 @@
     for (int ii=0; ii<[keys count]; ii++)
     {
         NSInteger col = [[keys objectAtIndex:ii] integerValue];
-        NSInteger maxRmCellY = -1;
+        NSMutableArray *yArray = [[NSMutableArray alloc] initWithCapacity:10];
+        NSInteger counter=[[columnCounterPairs objectForKey:[keys objectAtIndex:ii]] integerValue];
         for (MagicCell *rmCell in removedCells) {
             if ([rmCell isKindOfClass:[MagicCell class]]) {
                 if (rmCell.x == col) {
-                    maxRmCellY = MAX(maxRmCellY, rmCell.y);
+                    [yArray addObject:@(rmCell.y)];
                 }
             }
         }
+        NSSortDescriptor *descriptor=[NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
+        [yArray sortUsingDescriptors:@[descriptor]];
         for (MagicCell *cell in self.children) {
             if ([cell isKindOfClass:[MagicCell class]]) {
                 if (cell.x == col) {
-                    if (cell.y > maxRmCellY) {
-                        NSInteger counter=[[columnCounterPairs objectForKey:[keys objectAtIndex:ii]] integerValue];
+                    for (int kk=0; kk<[yArray count]-1; kk++) {
+                        if (cell.y > [[yArray objectAtIndex:kk] integerValue] && cell.y < [[yArray objectAtIndex:kk+1] integerValue]) {
+                            CCActionSequence *seq=[CCActionSequence actionOne:[CCActionMoveBy actionWithDuration:0.25f*(kk+1) position:ccp(0, -fixedWidth*(kk+1))] two:[CCActionCallBlock actionWithBlock:^{cell.y -= (kk+1);}]];
+                            [cell runAction:seq];
+                        }
+                    }
+                    if (cell.y > [[yArray objectAtIndex:(yArray.count-1)] integerValue]) {
                         CCActionSequence *seq=[CCActionSequence actionOne:[CCActionMoveBy actionWithDuration:0.25f*counter position:ccp(0, -fixedWidth*counter)] two:[CCActionCallBlock actionWithBlock:^{cell.y -= counter;}]];
                         [cell runAction:seq];
                     }
                 }
             }
         }
+        [yArray removeAllObjects];
         
         int ascend = 0;
         for (MagicCell *reuseCell in removedCells) {
@@ -151,7 +160,7 @@
                     reuseCell.cellID = r;
                     reuseCell.y=numOfRows+ascend;
                     reuseCell.position = ccp((reuseCell.x)*fixedWidth+biasX/2, (reuseCell.y)*fixedWidth+biasY/2);
-                    reuseCell.visible = YES;
+                    [reuseCell setSpriteOpacity];
                     CCActionSequence *seq=[CCActionSequence actionOne:[CCActionMoveBy actionWithDuration:0.25f*counter position:ccp(0, -fixedWidth*counter)] two:[CCActionCallBlock actionWithBlock:^{reuseCell.y -= counter;}]];
                     [reuseCell runAction:seq];
                     ascend++;
@@ -166,8 +175,12 @@
 }
 
 - (void)placeCellsWithCheck {
-    if([self checkMatch]) [self placeCells:NO];
+    if([self checkMatch]) [self performSelector:@selector(placeCellWithoutCheck) withObject:nil afterDelay:0.5f];
     else canMove = YES;
+}
+
+- (void)placeCellWithoutCheck {
+    [self placeCells:NO];
 }
 
 - (BOOL)checkMatch {
@@ -312,7 +325,7 @@
         canMove = YES;
         if (shouldCheck) {
             if([self checkMatch])
-                [self placeCells:NO];
+                [self performSelector:@selector(placeCellWithoutCheck) withObject:nil afterDelay:0.5f];
             else
                 [self swapCell:cellOne withCell:cellTwo doCheck:NO];
         }

@@ -33,6 +33,7 @@ static const float fixedWidth = 64.0f;
 - (instancetype)initWithCellImageNamed:(NSString *)name;
 
 - (void)burst;
+- (void)setSpriteOpacity;
 
 @end
 

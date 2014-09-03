@@ -101,8 +101,24 @@ static const NSInteger magicDefaultValue = 0;
 }
 
 - (void)burst {
+    float scale = 0.8f;
     CCParticleSystem *particle=[CCParticleSystem particleWithFile:@"burst.plist"];
+    particle.positionType = CCPositionTypeNormalized;
+    particle.position = ccp(0.5, 0.5);
+    particle.startSize *= scale;
+    particle.startSizeVar *= scale;
+    particle.endSize *= scale;
+    particle.endSizeVar *= scale;
+    particle.gravity = ccpMult(particle.gravity, scale);
+    particle.posVar = ccpMult(particle.posVar, scale);
+    
     [self addChild:particle];
+    
+    [_spriteCell runAction:[CCActionFadeOut actionWithDuration:0.3f]];
+}
+
+- (void)setSpriteOpacity {
+    [_spriteCell setOpacity:1.0f];
 }
 
 

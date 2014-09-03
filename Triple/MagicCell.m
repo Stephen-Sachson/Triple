@@ -100,6 +100,11 @@ static const NSInteger magicDefaultValue = 0;
     }
 }
 
+- (void)burst {
+    CCParticleSystem *particle=[CCParticleSystem particleWithFile:@"burst.plist"];
+    [self addChild:particle];
+}
+
 
 #endif
 #endif

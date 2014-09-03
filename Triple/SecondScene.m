@@ -134,7 +134,7 @@
                 if (cell.x == col) {
                     if (cell.y > maxRmCellY) {
                         NSInteger counter=[[columnCounterPairs objectForKey:[keys objectAtIndex:ii]] integerValue];
-                        CCActionSequence *seq=[CCActionSequence actionOne:[CCActionMoveBy actionWithDuration:0.15f*counter position:ccp(0, -fixedWidth*counter)] two:[CCActionCallBlock actionWithBlock:^{cell.y -= counter;}]];
+                        CCActionSequence *seq=[CCActionSequence actionOne:[CCActionMoveBy actionWithDuration:0.25f*counter position:ccp(0, -fixedWidth*counter)] two:[CCActionCallBlock actionWithBlock:^{cell.y -= counter;}]];
                         [cell runAction:seq];
                     }
                 }
@@ -152,7 +152,7 @@
                     reuseCell.y=numOfRows+ascend;
                     reuseCell.position = ccp((reuseCell.x)*fixedWidth+biasX/2, (reuseCell.y)*fixedWidth+biasY/2);
                     reuseCell.visible = YES;
-                    CCActionSequence *seq=[CCActionSequence actionOne:[CCActionMoveBy actionWithDuration:0.15f*counter position:ccp(0, -fixedWidth*counter)] two:[CCActionCallBlock actionWithBlock:^{reuseCell.y -= counter;}]];
+                    CCActionSequence *seq=[CCActionSequence actionOne:[CCActionMoveBy actionWithDuration:0.25f*counter position:ccp(0, -fixedWidth*counter)] two:[CCActionCallBlock actionWithBlock:^{reuseCell.y -= counter;}]];
                     [reuseCell runAction:seq];
                     ascend++;
                 }
@@ -162,7 +162,7 @@
     
     [columnCounterPairs removeAllObjects];
     
-    [self performSelector:@selector(placeCellsWithCheck) withObject:nil afterDelay:2.0f];
+    [self performSelector:@selector(placeCellsWithCheck) withObject:nil afterDelay:1.5f];
 }
 
 - (void)placeCellsWithCheck {
@@ -225,25 +225,25 @@
             if (cell.cellID == u1.cellID) {
                 if (cell.cellID == u2.cellID || cell.cellID == d1.cellID) {
                     [removedCells addObject:cell];
-                    cell.visible = NO;
+                    [cell burst];
                     continue;
                 }
             }
             if (cell.cellID == d1.cellID && cell.cellID == d2.cellID) {
                 [removedCells addObject:cell];
-                cell.visible = NO;
+                [cell burst];
                 continue;
             }
             if (cell.cellID == l1.cellID) {
                 if (cell.cellID == l2.cellID || cell.cellID == r1.cellID) {
                     [removedCells addObject:cell];
-                    cell.visible = NO;
+                    [cell burst];
                     continue;
                 }
             }
             if (cell.cellID == r1.cellID && cell.cellID == r2.cellID) {
                 [removedCells addObject:cell];
-                cell.visible = NO;
+                [cell burst];
                 continue;
             }
         }

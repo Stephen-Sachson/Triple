@@ -207,6 +207,7 @@
 		0D61337F19AD8498008D5621 /* cell2-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D61337C19AD8498008D5621 /* cell2-hd.jpg */; };
 		0D88C0E319ADD74D00EDE8AA /* cell3-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */; };
 		0D88C0E419ADD74D00EDE8AA /* cell4-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */; };
+		0DA16CB419B6E70300ED69D3 /* burst.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DA16CB319B6E70300ED69D3 /* burst.plist */; };
 		0DE6295119B40D45002ED391 /* SecondScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DE6295019B40D45002ED391 /* SecondScene.m */; };
 		0DE6295419B44315002ED391 /* bg-hd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6295319B44315002ED391 /* bg-hd.jpg */; };
 		0DE6296419B44A10002ED391 /* Orb_Icons_001-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DE6295F19B44A10002ED391 /* Orb_Icons_001-hd.png */; };
@@ -630,6 +631,7 @@
 		0D61337C19AD8498008D5621 /* cell2-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell2-hd.jpg"; sourceTree = "<group>"; };
 		0D88C0E119ADD74D00EDE8AA /* cell3-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell3-hd.jpg"; sourceTree = "<group>"; };
 		0D88C0E219ADD74D00EDE8AA /* cell4-hd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cell4-hd.jpg"; sourceTree = "<group>"; };
+		0DA16CB319B6E70300ED69D3 /* burst.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = burst.plist; sourceTree = "<group>"; };
 		0DE6294F19B40D45002ED391 /* SecondScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondScene.h; sourceTree = "<group>"; };
 		0DE6295019B40D45002ED391 /* SecondScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondScene.m; sourceTree = "<group>"; };
 		0DE6295219B40DAE002ED391 /* Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configuration.h; sourceTree = "<group>"; };
@@ -712,6 +714,7 @@
 		0D61310719AD7B4C008D5621 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0DA16CB319B6E70300ED69D3 /* burst.plist */,
 				0D61337A19AD8498008D5621 /* cell0-hd.jpg */,
 				0D61337B19AD8498008D5621 /* cell1-hd.jpg */,
 				0D61337C19AD8498008D5621 /* cell2-hd.jpg */,
@@ -1558,6 +1561,7 @@
 				0D61312219AD7B4C008D5621 /* Icon-Small-50.png in Resources */,
 				0DE6296519B44A10002ED391 /* Orb_Icons_002-hd.png in Resources */,
 				0D61336019AD7B4F008D5621 /* LICENSE_Chipmunk.txt in Resources */,
+				0DA16CB419B6E70300ED69D3 /* burst.plist in Resources */,
 				0D61311619AD7B4C008D5621 /* Icon-72.png in Resources */,
 				0D6132F219AD7B4F008D5621 /* LICENSE_CCBReader.txt in Resources */,
 				0DE6296819B44A10002ED391 /* Orb_Icons_005-hd.png in Resources */,

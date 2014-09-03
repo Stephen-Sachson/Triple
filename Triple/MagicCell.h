@@ -32,6 +32,8 @@ static const float fixedWidth = 64.0f;
 + (MagicCell *)cellWithImageNamed:(NSString *)name;
 - (instancetype)initWithCellImageNamed:(NSString *)name;
 
+- (void)burst;
+
 @end
 
 @protocol MagicCellDelegate <NSObject>

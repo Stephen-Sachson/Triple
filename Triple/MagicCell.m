@@ -29,7 +29,7 @@ static const NSInteger magicDefaultValue = 0;
     if (self = [super init]) {
         self.contentSize = CGSizeMake(fixedWidth, fixedWidth);
         
-        self.spriteCell = [CCSprite spriteWithImageNamed:name];
+        _spriteCell = [CCSprite spriteWithImageNamed:name];
         [self addChild:_spriteCell z:-1];
         
         _spriteCell.anchorPoint = CGPointZero;
@@ -63,8 +63,7 @@ static const NSInteger magicDefaultValue = 0;
 }
 
 - (void)setSpriteCell:(CCSprite *)spriteCell {
-    _spriteCell = spriteCell;
-    _spriteCell.scale = 0.5;
+    _spriteCell.texture = spriteCell.texture;
 }
 
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {

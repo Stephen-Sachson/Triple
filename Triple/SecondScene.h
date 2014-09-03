@@ -23,6 +23,9 @@ extern const float fixedWidth;
     float biasY;
     
     NSMutableArray *removedCells;
+    NSMutableDictionary *columnCounterPairs;
+    
+    BOOL canMove;
 }
 
 + (SecondScene *)scene;

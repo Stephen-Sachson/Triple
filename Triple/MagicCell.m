@@ -112,7 +112,7 @@ static const NSInteger magicDefaultValue = 0;
     particle.gravity = ccpMult(particle.gravity, scale);
     particle.posVar = ccpMult(particle.posVar, scale);
     
-    [self addChild:particle];
+    [self addChild:particle z:12];
     
     [_spriteCell runAction:[CCActionFadeOut actionWithDuration:0.3f]];
 }

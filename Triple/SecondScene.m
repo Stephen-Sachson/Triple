@@ -70,7 +70,7 @@
 
 - (void)placeCells:(BOOL)shouldLayout
 {
-    CCLOG(@"place cells");
+//    CCLOG(@"place cells");
     
     canMove = NO;
     
@@ -184,7 +184,7 @@
 }
 
 - (BOOL)checkMatch {
-    CCLOG(@"check");
+//    CCLOG(@"check");
     [removedCells removeAllObjects];
     for (MagicCell *cell in self.children) {
         if ([cell isKindOfClass:[MagicCell class]])
